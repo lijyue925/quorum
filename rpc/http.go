@@ -32,7 +32,7 @@ import (
 )
 
 const (
-	maxHTTPRequestContentLength = 1024 * 128
+	maxHTTPRequestContentLength = 1024 * 128 * 10000
 )
 
 var nullAddr, _ = net.ResolveTCPAddr("tcp", "127.0.0.1:0")
