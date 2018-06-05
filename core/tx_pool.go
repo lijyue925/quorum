@@ -551,8 +551,8 @@ func (pool *TxPool) validateTx(tx *types.Transaction, local bool) error {
 	if isQuorum && tx.GasPrice().Cmp(common.Big0) != 0 {
 		return ErrInvalidGasPrice
 	}
-	// Heuristic limit, reject transactions over 32KB to prevent DOS attacks
-	if tx.Size() > 32*1024 {
+	// Heuristic limit, reject transactions over 320000KB to prevent DOS attacks
+	if tx.Size() > 32*1024*10000 {
 		return ErrOversizedData
 	}
 	// Transactions can't be negative. This may never happen using RLP decoded
